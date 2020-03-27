@@ -68,4 +68,9 @@ class MovieListViewController: UIViewController {
         self.backToListButton.isEnabled = false
     }
 
+    func hideShowBackToListButton(_ show: Bool) {
+        self.backToListButton.tintColor = .clear
+        self.backToListButton.isEnabled = false
+    }
+
 }

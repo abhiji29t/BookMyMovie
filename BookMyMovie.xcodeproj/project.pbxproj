@@ -150,24 +150,40 @@
 		6CCD2702242E610C00BDDDCB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6CCD2703242E610C00BDDDCB /* ReviewTableViewCell.xib */,
-				6CCD2704242E610C00BDDDCB /* MovieTableViewCell.xib */,
-				6CCD2705242E610C00BDDDCB /* MovieListSearchBar.swift */,
-				6CCD2706242E610C00BDDDCB /* SynopsisTableViewCell.xib */,
-				6CCD2707242E610C00BDDDCB /* SynopsisTableViewCell.swift */,
-				6CCD2708242E610C00BDDDCB /* ReviewTableViewCell.swift */,
 				6CCD2709242E610C00BDDDCB /* Main.storyboard */,
-				6CCD270B242E610C00BDDDCB /* MovieSearchTableViewCell.swift */,
-				6CCD270C242E610C00BDDDCB /* MovieSearchTableViewCell.xib */,
-				6CCD270D242E610C00BDDDCB /* CastTableViewCell.swift */,
-				6CCD270E242E610C00BDDDCB /* MovieDetailTableView.swift */,
-				6CCD270F242E610C00BDDDCB /* SimilarTableViewCell.xib */,
-				6CCD2710242E610C00BDDDCB /* CastTableViewCell.xib */,
-				6CCD2711242E610C00BDDDCB /* SimilarTableViewCell.swift */,
-				6CCD2712242E610C00BDDDCB /* MovieListTableView.swift */,
-				6CCD2713242E610C00BDDDCB /* MovieTableViewCell.swift */,
+				6CCD273E242E6BF100BDDDCB /* MovieDetail */,
+				6CCD273D242E6BAE00BDDDCB /* MovieList */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6CCD273D242E6BAE00BDDDCB /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+				6CCD2712242E610C00BDDDCB /* MovieListTableView.swift */,
+				6CCD2704242E610C00BDDDCB /* MovieTableViewCell.xib */,
+				6CCD2713242E610C00BDDDCB /* MovieTableViewCell.swift */,
+				6CCD270C242E610C00BDDDCB /* MovieSearchTableViewCell.xib */,
+				6CCD2705242E610C00BDDDCB /* MovieListSearchBar.swift */,
+				6CCD270B242E610C00BDDDCB /* MovieSearchTableViewCell.swift */,
+			);
+			path = MovieList;
+			sourceTree = "<group>";
+		};
+		6CCD273E242E6BF100BDDDCB /* MovieDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6CCD270E242E610C00BDDDCB /* MovieDetailTableView.swift */,
+				6CCD2706242E610C00BDDDCB /* SynopsisTableViewCell.xib */,
+				6CCD2707242E610C00BDDDCB /* SynopsisTableViewCell.swift */,
+				6CCD270F242E610C00BDDDCB /* SimilarTableViewCell.xib */,
+				6CCD2711242E610C00BDDDCB /* SimilarTableViewCell.swift */,
+				6CCD2710242E610C00BDDDCB /* CastTableViewCell.xib */,
+				6CCD270D242E610C00BDDDCB /* CastTableViewCell.swift */,
+				6CCD2703242E610C00BDDDCB /* ReviewTableViewCell.xib */,
+				6CCD2708242E610C00BDDDCB /* ReviewTableViewCell.swift */,
+			);
+			path = MovieDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
