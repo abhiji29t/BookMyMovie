@@ -161,10 +161,10 @@
 			isa = PBXGroup;
 			children = (
 				6CCD2712242E610C00BDDDCB /* MovieListTableView.swift */,
+				6CCD2705242E610C00BDDDCB /* MovieListSearchBar.swift */,
 				6CCD2704242E610C00BDDDCB /* MovieTableViewCell.xib */,
 				6CCD2713242E610C00BDDDCB /* MovieTableViewCell.swift */,
 				6CCD270C242E610C00BDDDCB /* MovieSearchTableViewCell.xib */,
-				6CCD2705242E610C00BDDDCB /* MovieListSearchBar.swift */,
 				6CCD270B242E610C00BDDDCB /* MovieSearchTableViewCell.swift */,
 			);
 			path = MovieList;

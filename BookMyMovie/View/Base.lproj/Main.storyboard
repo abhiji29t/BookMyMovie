@@ -10,7 +10,7 @@
         <!--Movies-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MovieListViewController" customModule="FightClub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MovieListViewController" customModule="BookMyMovie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,6 +55,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backToListButton" destination="0D0-hM-PnB" id="ieh-DT-uD8"/>
+                        <outlet property="movieSearchBar" destination="RE9-w3-y3W" id="ZAT-cy-JzD"/>
                         <outlet property="movieTableView" destination="itZ-nB-Io3" id="sxF-Je-l4p"/>
                     </connections>
                 </viewController>
@@ -65,7 +66,7 @@
         <!--Movie Detail Controller-->
         <scene sceneID="3lw-cF-1Bw">
             <objects>
-                <viewController storyboardIdentifier="MovieDetailController" id="4d0-24-P17" customClass="MovieDetailController" customModule="FightClub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieDetailController" id="4d0-24-P17" customClass="MovieDetailController" customModule="BookMyMovie" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AvM-ph-UFM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

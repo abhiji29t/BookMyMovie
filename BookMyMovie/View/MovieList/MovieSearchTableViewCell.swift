@@ -13,5 +13,6 @@ class MovieSearchTableViewCell: UITableViewCell {
 
     func setMovieCellValues(_ movieName: String) {
         self.movieLabel.text = movieName
+        self.accessoryType = .disclosureIndicator
     }
 }

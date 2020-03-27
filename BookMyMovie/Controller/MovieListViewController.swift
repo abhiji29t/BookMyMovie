@@ -12,6 +12,7 @@ class MovieListViewController: UIViewController {
 
     @IBOutlet weak var movieTableView: UITableView!
     @IBOutlet weak var backToListButton: UIBarButtonItem!
+    @IBOutlet weak var movieSearchBar: UISearchBar!
 
     struct MovieData {
         var id: Int
@@ -20,20 +21,42 @@ class MovieListViewController: UIViewController {
         var date: String
     }
 
-    let cellReuseIdentifier = "MovieCell"
+    enum ListMode {
+        case nowShowing
+        case search
+    }
+
+    let listCellReuseIdentifier = "MovieCell"
+    let searchCellReuseIdentifier = "SearchCell"
+    let searchCacheKey = "SearchCache"
+
     var moviesDataCollection = [MovieData]()
-    var isSearchGoingOn = false
+    var searchMovieCollection = [MovieData]()
+    var listMode: ListMode = .nowShowing
+
+    let defaults = UserDefaults.standard
+    var searchCacheItems = [Int]()
+    var isRecentlySearchedItemShowing = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let nib = UINib(nibName: "MovieTableViewCell", bundle: nil)
-        self.movieTableView.register(nib, forCellReuseIdentifier: self.cellReuseIdentifier)
+        self.hideShowBackToListButton(false)
+        self.searchCacheItems = defaults.array(forKey: self.searchCacheKey) as? [Int] ?? [Int]()
+        self.registerNibs()
 
         self.movieTableView.estimatedRowHeight = 150
         self.movieTableView.rowHeight = UITableView.automaticDimension
 
         self.fetchTableViewData()
+    }
+
+    private func registerNibs() {
+        let movieNib = UINib(nibName: "MovieTableViewCell", bundle: nil)
+        self.movieTableView.register(movieNib, forCellReuseIdentifier: self.listCellReuseIdentifier)
+
+        let searchNib = UINib(nibName: "MovieSearchTableViewCell", bundle: nil)
+        self.movieTableView.register(searchNib, forCellReuseIdentifier: self.searchCellReuseIdentifier)
     }
 
     private func fetchTableViewData() {
@@ -64,13 +87,38 @@ class MovieListViewController: UIViewController {
     }
 
     @IBAction func backToListButtonPressed(_ sender: UIBarButtonItem) {
-        self.backToListButton.tintColor = .clear
-        self.backToListButton.isEnabled = false
+        self.cleanupSearchView()
     }
 
     func hideShowBackToListButton(_ show: Bool) {
-        self.backToListButton.tintColor = .clear
-        self.backToListButton.isEnabled = false
+        self.backToListButton.tintColor = show ? .link : .clear
+        self.backToListButton.isEnabled = show
+    }
+
+    func addToCacheMoiveID(_ movieId: Int) {
+        if searchCacheItems.contains(movieId) {
+            if let indexOfItem = searchCacheItems.firstIndex(of: movieId) {
+                searchCacheItems.remove(at: indexOfItem)
+                searchCacheItems.insert(movieId, at: 0)
+            }
+        } else {
+            if searchCacheItems.count >= 5 {
+                searchCacheItems.removeLast()
+            }
+            searchCacheItems.insert(movieId, at: 0)
+        }
+        defaults.set(searchCacheItems, forKey: self.searchCacheKey)
+    }
+
+    func getCachedMovieNames() -> [MovieData] {
+        var cachedMovieData = [MovieData]()
+        for movieID in searchCacheItems {
+            let movieData = moviesDataCollection.filter { $0.id == movieID }
+            if movieData.count > 0 {
+                cachedMovieData.append(movieData[0])
+            }
+        }
+        return cachedMovieData
     }
 
 }
