@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C9E7E11242E952400C8077B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6C9E7E10242E952400C8077B /* README.md */; };
 		6CCD2717242E610C00BDDDCB /* ImageView+Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD26F8242E610C00BDDDCB /* ImageView+Downloader.swift */; };
 		6CCD2718242E610C00BDDDCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CCD26F9242E610C00BDDDCB /* LaunchScreen.storyboard */; };
 		6CCD2719242E610C00BDDDCB /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD26FC242E610C00BDDDCB /* MovieListViewController.swift */; };
@@ -48,6 +49,7 @@
 /* Begin PBXFileReference section */
 		6C8028B7242B9C9A003F0D5B /* BookMyMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMyMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C8028CD242B9C9D003F0D5B /* BookMyMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookMyMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C9E7E10242E952400C8077B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6CCD26F8242E610C00BDDDCB /* ImageView+Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageView+Downloader.swift"; sourceTree = "<group>"; };
 		6CCD26FA242E610C00BDDDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CCD26FC242E610C00BDDDCB /* MovieListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				6CCD2714242E610C00BDDDCB /* AppDelegate.swift */,
 				6CCD2715242E610C00BDDDCB /* Info.plist */,
 				6CCD2716242E610C00BDDDCB /* SceneDelegate.swift */,
+				6C9E7E10242E952400C8077B /* README.md */,
 			);
 			path = BookMyMovie;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			files = (
 				6CCD2718242E610C00BDDDCB /* LaunchScreen.storyboard in Resources */,
 				6CCD2724242E610C00BDDDCB /* Main.storyboard in Resources */,
+				6C9E7E11242E952400C8077B /* README.md in Resources */,
 				6CCD2721242E610C00BDDDCB /* SynopsisTableViewCell.xib in Resources */,
 				6CCD2732242E616600BDDDCB /* Assets.xcassets in Resources */,
 				6CCD271E242E610C00BDDDCB /* ReviewTableViewCell.xib in Resources */,

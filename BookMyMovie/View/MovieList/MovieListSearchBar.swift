@@ -11,7 +11,7 @@ import UIKit
 extension MovieListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchString = searchBar.text {
-            self.getResultsForSearchString(searchString)
+            self.populateTableViewForSearchString(searchString)
         }
         searchBar.resignFirstResponder()
     }
@@ -29,13 +29,13 @@ extension MovieListViewController: UISearchBarDelegate {
                 self.isRecentlySearchedItemShowing = true
                 self.showSearchItemsInTableView()
             } else {
-                self.getResultsForSearchString(searchString)
+                self.populateTableViewForSearchString(searchString)
             }
         }
     }
 
-    private func getResultsForSearchString(_ searchString: String) {
-        self.searchMovieCollection = moviesDataCollection.filter({$0.name.localizedCaseInsensitiveContains(searchString)})
+    private func populateTableViewForSearchString(_ searchString: String) {
+        self.searchMovieCollection = self.findSearchResultsForSearchString(searchString.lowercased())
         self.isRecentlySearchedItemShowing = false
         self.showSearchItemsInTableView()
     }
