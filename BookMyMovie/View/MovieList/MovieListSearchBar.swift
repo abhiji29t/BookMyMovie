@@ -35,7 +35,9 @@ extension MovieListViewController: UISearchBarDelegate {
     }
 
     private func populateTableViewForSearchString(_ searchString: String) {
-        self.searchMovieCollection = self.findSearchResultsForSearchString(searchString.lowercased())
+        let movieNames = self.moviesDataCollection.map {$0.name}
+        let resultMovieNames = self.findSearchResultsForSearchString(searchString, inMovieNames: movieNames)
+        self.searchMovieCollection = self.moviesDataCollection.filter { resultMovieNames.contains($0.name)}
         self.isRecentlySearchedItemShowing = false
         self.showSearchItemsInTableView()
     }

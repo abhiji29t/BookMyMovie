@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C943E77242F6405007B3A88 /* BookMyMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C943E76242F6405007B3A88 /* BookMyMovieTests.swift */; };
 		6C9E7E11242E952400C8077B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6C9E7E10242E952400C8077B /* README.md */; };
 		6CCD2717242E610C00BDDDCB /* ImageView+Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD26F8242E610C00BDDDCB /* ImageView+Downloader.swift */; };
 		6CCD2718242E610C00BDDDCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CCD26F9242E610C00BDDDCB /* LaunchScreen.storyboard */; };
@@ -37,18 +38,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6C8028CE242B9C9D003F0D5B /* PBXContainerItemProxy */ = {
+		6C943E79242F6405007B3A88 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6C8028AF242B9C9A003F0D5B /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 6C8028B6242B9C9A003F0D5B;
-			remoteInfo = FightClub;
+			remoteInfo = BookMyMovie;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6C8028B7242B9C9A003F0D5B /* BookMyMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMyMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C8028CD242B9C9D003F0D5B /* BookMyMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookMyMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C943E6E242F628F007B3A88 /* SearchUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchUnitTests.swift; path = BookMyMovieTests/SearchUnitTests.swift; sourceTree = "<group>"; };
+		6C943E74242F6405007B3A88 /* BookMyMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookMyMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C943E76242F6405007B3A88 /* BookMyMovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMyMovieTests.swift; sourceTree = "<group>"; };
+		6C943E78242F6405007B3A88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C9E7E10242E952400C8077B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6CCD26F8242E610C00BDDDCB /* ImageView+Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageView+Downloader.swift"; sourceTree = "<group>"; };
 		6CCD26FA242E610C00BDDDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -87,7 +91,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C8028CA242B9C9D003F0D5B /* Frameworks */ = {
+		6C943E71242F6405007B3A88 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -100,7 +104,9 @@
 		6C8028AE242B9C9A003F0D5B = {
 			isa = PBXGroup;
 			children = (
+				6C943E6E242F628F007B3A88 /* SearchUnitTests.swift */,
 				6CCD26F7242E610C00BDDDCB /* BookMyMovie */,
+				6C943E75242F6405007B3A88 /* BookMyMovieTests */,
 				6C8028B8242B9C9A003F0D5B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,9 +115,18 @@
 			isa = PBXGroup;
 			children = (
 				6C8028B7242B9C9A003F0D5B /* BookMyMovie.app */,
-				6C8028CD242B9C9D003F0D5B /* BookMyMovieTests.xctest */,
+				6C943E74242F6405007B3A88 /* BookMyMovieTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6C943E75242F6405007B3A88 /* BookMyMovieTests */ = {
+			isa = PBXGroup;
+			children = (
+				6C943E76242F6405007B3A88 /* BookMyMovieTests.swift */,
+				6C943E78242F6405007B3A88 /* Info.plist */,
+			);
+			path = BookMyMovieTests;
 			sourceTree = "<group>";
 		};
 		6CCD26F7242E610C00BDDDCB /* BookMyMovie */ = {
@@ -209,22 +224,22 @@
 			productReference = 6C8028B7242B9C9A003F0D5B /* BookMyMovie.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6C8028CC242B9C9D003F0D5B /* BookMyMovieTests */ = {
+		6C943E73242F6405007B3A88 /* BookMyMovieTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C8028D9242B9C9D003F0D5B /* Build configuration list for PBXNativeTarget "BookMyMovieTests" */;
+			buildConfigurationList = 6C943E7B242F6405007B3A88 /* Build configuration list for PBXNativeTarget "BookMyMovieTests" */;
 			buildPhases = (
-				6C8028C9242B9C9D003F0D5B /* Sources */,
-				6C8028CA242B9C9D003F0D5B /* Frameworks */,
-				6C8028CB242B9C9D003F0D5B /* Resources */,
+				6C943E70242F6405007B3A88 /* Sources */,
+				6C943E71242F6405007B3A88 /* Frameworks */,
+				6C943E72242F6405007B3A88 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6C8028CF242B9C9D003F0D5B /* PBXTargetDependency */,
+				6C943E7A242F6405007B3A88 /* PBXTargetDependency */,
 			);
 			name = BookMyMovieTests;
-			productName = FightClubTests;
-			productReference = 6C8028CD242B9C9D003F0D5B /* BookMyMovieTests.xctest */;
+			productName = BookMyMovieTests;
+			productReference = 6C943E74242F6405007B3A88 /* BookMyMovieTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -233,16 +248,15 @@
 		6C8028AF242B9C9A003F0D5B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Abhijitkumar A";
 				TargetAttributes = {
 					6C8028B6242B9C9A003F0D5B = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
-					6C8028CC242B9C9D003F0D5B = {
-						CreatedOnToolsVersion = 11.3.1;
-						LastSwiftMigration = 1140;
+					6C943E73242F6405007B3A88 = {
+						CreatedOnToolsVersion = 11.4;
 						TestTargetID = 6C8028B6242B9C9A003F0D5B;
 					};
 				};
@@ -261,7 +275,7 @@
 			projectRoot = "";
 			targets = (
 				6C8028B6242B9C9A003F0D5B /* BookMyMovie */,
-				6C8028CC242B9C9D003F0D5B /* BookMyMovieTests */,
+				6C943E73242F6405007B3A88 /* BookMyMovieTests */,
 			);
 		};
 /* End PBXProject section */
@@ -284,7 +298,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C8028CB242B9C9D003F0D5B /* Resources */ = {
+		6C943E72242F6405007B3A88 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -318,20 +332,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6C8028C9242B9C9D003F0D5B /* Sources */ = {
+		6C943E70242F6405007B3A88 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C943E77242F6405007B3A88 /* BookMyMovieTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6C8028CF242B9C9D003F0D5B /* PBXTargetDependency */ = {
+		6C943E7A242F6405007B3A88 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6C8028B6242B9C9A003F0D5B /* BookMyMovie */;
-			targetProxy = 6C8028CE242B9C9D003F0D5B /* PBXContainerItemProxy */;
+			targetProxy = 6C943E79242F6405007B3A88 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -505,49 +520,47 @@
 			};
 			name = Release;
 		};
-		6C8028DA242B9C9D003F0D5B /* Debug */ = {
+		6C943E7C242F6405007B3A88 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TNZ78235XC;
-				INFOPLIST_FILE = FightClubTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				INFOPLIST_FILE = BookMyMovieTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blancos.FightClubTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blancos.BookMyMovieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BookMyMovieTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookMyMovie.app/BookMyMovie";
 			};
 			name = Debug;
 		};
-		6C8028DB242B9C9D003F0D5B /* Release */ = {
+		6C943E7D242F6405007B3A88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TNZ78235XC;
-				INFOPLIST_FILE = FightClubTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = BookMyMovieTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blancos.FightClubTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blancos.BookMyMovieTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BookMyMovieTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BookMyMovie.app/BookMyMovie";
@@ -575,11 +588,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C8028D9242B9C9D003F0D5B /* Build configuration list for PBXNativeTarget "BookMyMovieTests" */ = {
+		6C943E7B242F6405007B3A88 /* Build configuration list for PBXNativeTarget "BookMyMovieTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6C8028DA242B9C9D003F0D5B /* Debug */,
-				6C8028DB242B9C9D003F0D5B /* Release */,
+				6C943E7C242F6405007B3A88 /* Debug */,
+				6C943E7D242F6405007B3A88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

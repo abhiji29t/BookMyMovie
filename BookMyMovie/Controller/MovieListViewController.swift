@@ -121,26 +121,25 @@ class MovieListViewController: UIViewController {
         return cachedMovieData
     }
 
-    func findSearchResultsForSearchString(_ searchString: String) -> [MovieData] {
-        var movideDataArray = [MovieData]()
-        var searchWordArray = searchString.components(separatedBy: " ")
+    func findSearchResultsForSearchString(_ searchString: String, inMovieNames movieNames: [String]) -> [String] {
+        var movideResultArray = [String]()
+        var searchWordArray = searchString.lowercased().components(separatedBy: " ")
         searchWordArray = searchWordArray.filter {$0.count > 0}
-        print(searchWordArray)
 
-        MovieDataLoop: for movieData in moviesDataCollection {
-            let movieName = movieData.name.lowercased()
-            let movieNameWordArray = movieName.components(separatedBy: " ")
+        MovieDataLoop: for movieName in movieNames {
+            let movieNameLC = movieName.lowercased()
+            let movieNameWordArray = movieNameLC.components(separatedBy: " ")
 
             for movieNameWord in movieNameWordArray {
                 for searchWord in searchWordArray {
                     let prefix = movieNameWord.prefix(searchWord.count)
                     if prefix == searchWord {
-                        movideDataArray.append(movieData)
+                        movideResultArray.append(movieName)
                         continue MovieDataLoop
                     }
                 }
             }
         }
-        return movideDataArray
+        return movideResultArray
     }
 }
