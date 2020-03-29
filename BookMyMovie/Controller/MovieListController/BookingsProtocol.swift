@@ -8,11 +8,15 @@
 
 import UIKit
 
+// Protocol to give request to book movie tickets
 protocol BookingsDelegate: class {
     func bookMovieWith(_ movieData: MovieData)
 }
 
+// Handles booking of tickets and handles duplicate ticket case
 extension MovieListViewController: BookingsDelegate {
+
+    // Books ticket if booking is already not made
     func bookMovieWith(_ movieData: MovieData) {
         if checkIfMovieAlreadyBooked(movieData) {
             showAlert(for: true, with: movieData)
@@ -22,6 +26,7 @@ extension MovieListViewController: BookingsDelegate {
         }
     }
 
+    // Shows appropriate alert for succesful or duplicate booking. Scolds greedy people
     func showAlert(for isMovieAlreadybooked: Bool, with movieData: MovieData) {
         var title: String, message: String
 

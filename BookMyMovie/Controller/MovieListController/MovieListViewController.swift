@@ -8,6 +8,7 @@
 
 import UIKit
 
+// View controller for landing page (Now Showing page)
 class MovieListViewController: UIViewController {
 
     @IBOutlet weak var movieTableView: UITableView!
@@ -46,6 +47,7 @@ class MovieListViewController: UIViewController {
         self.movieTableView.backgroundColor = ultraLightGrayColor
     }
 
+    // Registers all the cells required
     private func registerNibs() {
         let movieNib = UINib(nibName: "MovieTableViewCell", bundle: nil)
         self.movieTableView.register(movieNib, forCellReuseIdentifier: listCellReuseIdentifier)
@@ -54,6 +56,7 @@ class MovieListViewController: UIViewController {
         self.movieTableView.register(searchNib, forCellReuseIdentifier: searchCellReuseIdentifier)
     }
 
+    // Requests the urlRequest and then requests the data from the Network Service
     private func fetchTableViewData() {
         let urlRequest = RequestHandler.shared.getURLRequest(forDetail: .nowPlaying)
         if let urlRequest = urlRequest {
@@ -71,6 +74,7 @@ class MovieListViewController: UIViewController {
         }
     }
 
+    // Parses the data from the server, removes corrupt data and stores it in parsed data structure
     private func setUpMovieData(withResult result: NowPlaying) {
         if result.results.count > 0 {
             for movieResult in result.results {
@@ -81,20 +85,22 @@ class MovieListViewController: UIViewController {
         }
     }
 
+    // BackToList button to go from search list to now playing list
     @IBAction func backToListButtonPressed(_ sender: UIBarButtonItem) {
         self.cleanupSearchView()
-    }
-
-    @IBAction func bookingsButtonPressed(_ sender: Any) {
-        if let bookingsController = storyboard?.instantiateViewController(identifier: "BookingsViewController") as? BookingsViewController {
-            bookingsController.bookingsCollection = self.bookingsCollection
-            self.navigationController?.pushViewController(bookingsController, animated: true)
-        }
     }
 
     func hideShowBackToListButton(_ show: Bool) {
         self.backToListButton.tintColor = show ? .black : .clear
         self.backToListButton.isEnabled = show
+    }
+
+    // Button to go to bookings screen
+    @IBAction func bookingsButtonPressed(_ sender: Any) {
+        if let bookingsController = storyboard?.instantiateViewController(identifier: "BookingsViewController") as? BookingsViewController {
+            bookingsController.bookingsCollection = self.bookingsCollection
+            self.navigationController?.pushViewController(bookingsController, animated: true)
+        }
     }
 }
 

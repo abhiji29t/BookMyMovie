@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Model for Now Playing data
 struct NowPlaying: Decodable {
     var results: [MovieResult]
 }
@@ -19,10 +20,14 @@ struct MovieResult: Decodable {
     var release_date: String?
 }
 
+
+// Model for Synopsis data
 struct Overview: Decodable {
     var overview: String?
 }
 
+
+// Model for similar movies data
 struct SimilarMovies: Decodable {
     var results: [SimilarMovie]
 }
@@ -32,6 +37,7 @@ struct SimilarMovie: Decodable {
     var poster_path: String?
 }
 
+// Model for similar credits data
 struct Credits: Decodable {
     var cast: [CastData]
 }
@@ -42,6 +48,8 @@ struct CastData: Decodable {
     var profile_path: String?
 }
 
+
+// Model for similar review data
 struct Reviews: Decodable {
     var results: [ReviewData]
 }

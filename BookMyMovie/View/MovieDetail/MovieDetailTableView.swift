@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Movie Detail table view
 extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return detailData.count
@@ -29,6 +30,7 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    // Calls appropriate method to create the cell for table view
     private func setUpTableViewCell(_ tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell{
         switch indexPath.section {
         case 0:
@@ -44,6 +46,7 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
+    // Creates cell for synopsis
     private func createSynopsisCell(_ tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: synopsisReuseIdentifier, for: indexPath) as! SynopsisTableViewCell
 
@@ -54,6 +57,7 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    // Creates cell for similar movies
     private func createSimilarCell(_ tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: similarReuseIdentifier, for: indexPath) as! SimilarTableViewCell
 
@@ -64,6 +68,7 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    // Creates cell for cast
     private func createCastCell(_ tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: castReuseIdentifier, for: indexPath) as! CastTableViewCell
 
@@ -74,6 +79,7 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    // Creates cell for reviews
     private func createReviewCell(_ tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: reviewReuseIdentifier, for: indexPath) as! ReviewTableViewCell
 
@@ -84,6 +90,8 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    // Creates header for the section of all details
+    // Takes care of the case where no reviews are there
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerButton = UIButton(type: .system)
         let title = self.getHeaderName(forSection: section)
@@ -99,6 +107,7 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
         return headerButton
     }
 
+    // Returns appropriate header name for section
     private func getHeaderName(forSection section: Int) -> String {
         switch section {
         case 0:
@@ -117,6 +126,7 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
+    // Handles expansion and collapse of the section
     @objc func handleExpandClose(button: UIButton) {
         var indexPaths = [IndexPath]()
         for row in detailData[button.tag].detailItems.indices {

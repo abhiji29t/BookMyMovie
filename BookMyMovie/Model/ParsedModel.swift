@@ -8,16 +8,13 @@
 
 import Foundation
 
+// Parsed models to store safe data
+
 struct MovieData {
     var id: Int
     var imageURL: String
     var name: String
     var date: String
-}
-
-struct ExpandableDetail {
-    var isExpanded: Bool
-    var detailItems: [Any]
 }
 
 struct Similar {

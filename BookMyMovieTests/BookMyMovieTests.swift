@@ -22,20 +22,22 @@ class BookMyMovieTests: XCTestCase {
         movieListViewController = nil
     }
 
+    // Testing Case 1 of assignment
     func testSearchAlgorithmCase1() {
         let searchString = "r"
         let searchResult = ["Ralph Breaks The Internet", "Bohemian Rhapsody"]
 
-        let resultFromAlgorithm = movieListViewController.findSearchResultsForSearchString(searchString, inMovieNames: movieNames)
+        let resultFromAlgorithm = Utility.findSearchResultsForSearchString(searchString, inMovieNames: movieNames)
 
         XCTAssertEqual(searchResult, resultFromAlgorithm)
     }
 
+    // Testing Case 2 of assignment
     func testSearchAlgorithmCase2() {
         let searchString = "Le Jaayenge Dilwale"
         let searchResult = ["Dilwale Dulhania Le Jaayenge"]
 
-        let resultFromAlgorithm = movieListViewController.findSearchResultsForSearchString(searchString, inMovieNames: movieNames)
+        let resultFromAlgorithm = Utility.findSearchResultsForSearchString(searchString, inMovieNames: movieNames)
 
         XCTAssertEqual(searchResult, resultFromAlgorithm)
     }

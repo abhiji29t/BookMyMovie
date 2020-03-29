@@ -8,6 +8,9 @@
 
 import Foundation
 
+// Handles requesting movie details from Network Service and then parsing them accroding to detail type
+// Handles parsing of synopsis, similar movies, cast and reviews
+
 extension MovieDetailController {
     func getSynopsis(forMovieID movieId: String) {
         let urlRequest = RequestHandler.shared.getURLRequest(forDetail: .synopsis, forMovieID: movieId)

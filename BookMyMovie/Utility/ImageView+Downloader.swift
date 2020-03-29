@@ -8,7 +8,9 @@
 
 import UIKit
 
+// Reusable code to download an image asynchronously and putting it in UIImageView
 extension UIImageView {
+
     func getImageFromURL(_ url: String, withCache imageCache: NSCache<NSString, UIImage>) {
         self.image = nil
 
@@ -22,14 +24,14 @@ extension UIImageView {
     func downloadImageFromURL(_ url: String, withCache imageCache: NSCache<NSString, UIImage>) {
         let urlRequest = RequestHandler.shared.getImageURLRequest(fromPosterURL: url)
         if let urlRequest = urlRequest {
-            NetworkService.shared.makeUrlRequest(urlRequest, false) { (result: Result<Data, NetworkError>) in
+            NetworkService.shared.makeUrlRequest(urlRequest, false) { [weak self] (result: Result<Data, NetworkError>) in
                 switch result {
                 case .success(let result):
                     let image = UIImage(data: result)
                     if let imageToCache = image {
                         imageCache.setObject(imageToCache, forKey: url as NSString)
                         DispatchQueue.main.async {
-                            self.image = image
+                            self?.image = image
                         }
                     }
                 case .failure(let error):

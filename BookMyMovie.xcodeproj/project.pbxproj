@@ -123,8 +123,8 @@
 		6C58F90C242FF2E40061CE38 /* Bookings */ = {
 			isa = PBXGroup;
 			children = (
-				6C58F911242FF4E50061CE38 /* BookingsTableView.swift */,
 				6CA1F80D2430B92E00BAF500 /* TableViewCells */,
+				6C58F911242FF4E50061CE38 /* BookingsTableView.swift */,
 			);
 			path = Bookings;
 			sourceTree = "<group>";
@@ -132,6 +132,7 @@
 		6C8028AE242B9C9A003F0D5B = {
 			isa = PBXGroup;
 			children = (
+				6C9E7E10242E952400C8077B /* README.md */,
 				6CCD26F7242E610C00BDDDCB /* BookMyMovie */,
 				6C943E75242F6405007B3A88 /* BookMyMovieTests */,
 				6C8028B8242B9C9A003F0D5B /* Products */,
@@ -249,7 +250,6 @@
 				6CA1F8162430C53E00BAF500 /* SceneDelegate.swift */,
 				6CCD2714242E610C00BDDDCB /* AppDelegate.swift */,
 				6CCD2715242E610C00BDDDCB /* Info.plist */,
-				6C9E7E10242E952400C8077B /* README.md */,
 			);
 			path = BookMyMovie;
 			sourceTree = "<group>";
@@ -288,9 +288,9 @@
 		6CCD273D242E6BAE00BDDDCB /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
+				6CA1F80B2430B8FD00BAF500 /* TableViewCells */,
 				6CCD2712242E610C00BDDDCB /* MovieListTableView.swift */,
 				6CCD2705242E610C00BDDDCB /* MovieListSearchBar.swift */,
-				6CA1F80B2430B8FD00BAF500 /* TableViewCells */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
@@ -298,8 +298,8 @@
 		6CCD273E242E6BF100BDDDCB /* MovieDetail */ = {
 			isa = PBXGroup;
 			children = (
-				6CCD270E242E610C00BDDDCB /* MovieDetailTableView.swift */,
 				6CA1F80C2430B91D00BAF500 /* TableViewCells */,
+				6CCD270E242E610C00BDDDCB /* MovieDetailTableView.swift */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";

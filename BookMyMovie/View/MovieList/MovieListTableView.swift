@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Now Showing table view
 extension MovieListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch self.listMode {
@@ -27,6 +28,7 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 
+    // Gets Movie table cells of now showing movies
     private func getMovieListCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: listCellReuseIdentifier, for: indexPath) as! MovieTableViewCell
 
@@ -37,6 +39,7 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
+    // Gets search cell of movies searched
     private func getSearchCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: searchCellReuseIdentifier, for: indexPath) as! MovieSearchTableViewCell
 
@@ -46,6 +49,7 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
+    // Sets header title in case of recently searched movies are showing up
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if self.isRecentlySearchedItemShowing && !self.searchCacheItems.isEmpty {
             return "Recently Searced"
@@ -53,6 +57,7 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate {
         return ""
     }
 
+    // Sets header height in case of recently searched movies are showing up
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if self.isRecentlySearchedItemShowing && !self.searchCacheItems.isEmpty {
             return 50
@@ -74,7 +79,7 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate {
 
             self.navigationController?.pushViewController(movieDetailController, animated: true)
             if listMode == .search {
-                self.addToCacheMoiveID(movieData.id)
+                self.addToCacheMoiveID(movieData.id)                // Requests adding movie to the cache
                 self.cleanupSearchView()
             }
             tableView.deselectRow(at: indexPath, animated: true)

@@ -8,7 +8,11 @@
 
 import Foundation
 
+// Handles caching of movies searched in search bar
+
 extension MovieListViewController {
+
+    // Adds movie to cache if its not present, otherwise moves it up to the top if already present. Maintaines max size to 5
     func addToCacheMoiveID(_ movieId: Int) {
         if searchCacheItems.contains(movieId) {
             if let indexOfItem = searchCacheItems.firstIndex(of: movieId) {

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Bookings table view
 extension BookingsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookingsCollection.count
@@ -22,6 +23,7 @@ extension BookingsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    // Creates a header title in case no bookings are made
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if self.bookingsCollection.isEmpty {
             return "You have made no bookings yet!"
@@ -29,6 +31,7 @@ extension BookingsViewController: UITableViewDelegate, UITableViewDataSource {
         return ""
     }
 
+    // Gives a header height in case no bookings are made
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if self.bookingsCollection.isEmpty {
             return 50

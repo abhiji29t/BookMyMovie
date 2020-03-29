@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Enum to define all types of requests for fetching data from server
 enum MovieDetailRequest {
     case nowPlaying
     case synopsis
@@ -22,6 +23,7 @@ struct RequestHandler {
     private let domain = "https://api.themoviedb.org/3/movie/"
     private let apiKey = "d6841f419a146ff670fc9ff740d9d729"
 
+    // Makes URLRequests for fetching data depending on the request type
     func getURLRequest(forDetail detailType: MovieDetailRequest, forMovieID id: String = "") -> URLRequest? {
         let urlString = domain + self.getRequestString(ofType: detailType, forMovieID: id)
         if let url = URL(string: urlString) {
@@ -45,6 +47,7 @@ struct RequestHandler {
         }
     }
 
+    // Makes URLRequests for images
     func getImageURLRequest(fromPosterURL posterURL: String) -> URLRequest? {
         let urlString = "https://image.tmdb.org/t/p/w185" + posterURL
         if let url = URL(string: urlString) {

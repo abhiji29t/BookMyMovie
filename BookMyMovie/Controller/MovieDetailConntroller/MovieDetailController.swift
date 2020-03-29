@@ -8,6 +8,7 @@
 
 import UIKit
 
+// View controller for detail page
 class MovieDetailController: UIViewController {
 
     @IBOutlet weak var detailTableView: UITableView!
@@ -16,6 +17,12 @@ class MovieDetailController: UIViewController {
     @IBOutlet weak var releaseDate: UILabel!
     @IBOutlet weak var bookButton: UIButton!
 
+    // To handle expandable details
+    struct ExpandableDetail {
+        var isExpanded: Bool
+        var detailItems: [Any]
+    }
+    
     weak var bookingDelegate: BookingsDelegate?
 
     var movieData = MovieData(id: -1, imageURL: "", name: "", date: "")
@@ -40,6 +47,7 @@ class MovieDetailController: UIViewController {
         self.detailTableView.rowHeight = UITableView.automaticDimension
     }
 
+    // Registers all the cells required
     private func initialiseNibs() {
         let synopsisNib = UINib(nibName: "SynopsisTableViewCell", bundle: nil)
         self.detailTableView.register(synopsisNib, forCellReuseIdentifier: synopsisReuseIdentifier)
@@ -60,6 +68,7 @@ class MovieDetailController: UIViewController {
         }
     }
 
+    // Renders movie details like poster, date and book button on top
     func renderMovieDetails() {
         self.title = self.movieData.name
         self.posterView.layer.cornerRadius = 10
@@ -73,6 +82,7 @@ class MovieDetailController: UIViewController {
         self.detailTableView.backgroundColor = ultraLightGrayColor
     }
 
+    // Gives Booking request
     @IBAction func bookButtonPressed(_ sender: Any) {
         bookingDelegate?.bookMovieWith(self.movieData)
     }

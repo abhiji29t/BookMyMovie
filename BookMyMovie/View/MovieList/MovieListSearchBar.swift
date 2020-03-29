@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Handle all search related delegates and operations 
 extension MovieListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let searchString = searchBar.text {
@@ -34,6 +35,7 @@ extension MovieListViewController: UISearchBarDelegate {
         }
     }
 
+    // Gets result of movies from search result using algorithm to check for prefixes
     private func populateTableViewForSearchString(_ searchString: String) {
         let movieNames = self.moviesDataCollection.map {$0.name}
         let resultMovieNames = Utility.findSearchResultsForSearchString(searchString, inMovieNames: movieNames)
@@ -42,6 +44,7 @@ extension MovieListViewController: UISearchBarDelegate {
         self.showSearchItemsInTableView()
     }
 
+    // Cleans up search view before switching to now showing mode
     func cleanupSearchView() {
         self.listMode = .nowShowing
         self.hideShowBackToListButton(false)
@@ -51,6 +54,7 @@ extension MovieListViewController: UISearchBarDelegate {
         self.movieTableView.reloadData()
     }
 
+    // Switches to search mode and reloads the table view
     private func showSearchItemsInTableView() {
         self.hideShowBackToListButton(true)
         self.listMode = .search

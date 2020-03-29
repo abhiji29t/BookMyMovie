@@ -8,6 +8,7 @@
 
 import UIKit
 
+// View controller for Bookings page
 class BookingsViewController: UIViewController {
 
     @IBOutlet weak var bookingsTableView: UITableView!
@@ -20,6 +21,7 @@ class BookingsViewController: UIViewController {
 
     }
 
+    // Registers the cell required
     private func registerNib() {
         let bookingNib = UINib(nibName: "BookingTableViewCell", bundle: nil)
         self.bookingsTableView.register(bookingNib, forCellReuseIdentifier: bookingCellReuseIdentifier)

@@ -8,6 +8,7 @@
 
 import Foundation
 
+// Enum to define all types of errror occured during fetching of data
 enum NetworkError: Error {
     case clientError
     case serverError
@@ -19,6 +20,7 @@ class NetworkService {
 
     static let shared = NetworkService()
 
+    // Method to fetch data from the server, decode into generic type and handling the completion block
     func makeUrlRequest<T: Decodable>(_ request: URLRequest, _ isJSON: Bool, resultHandler: @escaping (Result<T, NetworkError>) -> Void) {
         let urlTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
