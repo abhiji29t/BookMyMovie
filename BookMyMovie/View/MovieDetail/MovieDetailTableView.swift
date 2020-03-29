@@ -45,7 +45,7 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
     }
 
     private func createSynopsisCell(_ tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.synopsisReuseIdentifier, for: indexPath) as! SynopsisTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: synopsisReuseIdentifier, for: indexPath) as! SynopsisTableViewCell
 
         let synopsisContent = detailData[0].detailItems[indexPath.row] as? String
         if let content = synopsisContent {
@@ -55,7 +55,7 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
     }
 
     private func createSimilarCell(_ tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.similarReuseIdentifier, for: indexPath) as! SimilarTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: similarReuseIdentifier, for: indexPath) as! SimilarTableViewCell
 
         let similarData = detailData[1].detailItems[indexPath.row] as? Similar
         if let similar = similarData {
@@ -65,7 +65,7 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
     }
 
     private func createCastCell(_ tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.castReuseIdentifier, for: indexPath) as! CastTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: castReuseIdentifier, for: indexPath) as! CastTableViewCell
 
         let castData = detailData[2].detailItems[indexPath.row] as? Cast
         if let cast = castData {
@@ -75,7 +75,7 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
     }
 
     private func createReviewCell(_ tableView: UITableView, forIndexPath indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.reviewReuseIdentifier, for: indexPath) as! ReviewTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: reviewReuseIdentifier, for: indexPath) as! ReviewTableViewCell
 
         let reviewData = detailData[3].detailItems[indexPath.row] as? Review
         if let review = reviewData {

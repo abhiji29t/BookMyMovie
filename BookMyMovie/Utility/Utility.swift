@@ -23,4 +23,26 @@ class Utility {
         }
         return nil
     }
+
+    static func findSearchResultsForSearchString(_ searchString: String, inMovieNames movieNames: [String]) -> [String] {
+        var movideResultArray = [String]()
+        var searchWordArray = searchString.lowercased().components(separatedBy: " ")
+        searchWordArray = searchWordArray.filter {$0.count > 0}
+
+        MovieDataLoop: for movieName in movieNames {
+            let movieNameLC = movieName.lowercased()
+            let movieNameWordArray = movieNameLC.components(separatedBy: " ")
+
+            for movieNameWord in movieNameWordArray {
+                for searchWord in searchWordArray {
+                    let prefix = movieNameWord.prefix(searchWord.count)
+                    if prefix == searchWord {
+                        movideResultArray.append(movieName)
+                        continue MovieDataLoop
+                    }
+                }
+            }
+        }
+        return movideResultArray
+    }
 }

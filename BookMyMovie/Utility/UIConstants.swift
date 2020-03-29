@@ -16,6 +16,10 @@ let lightGrayColor = UIColor(red: 199 / 255, green: 199 / 255, blue: 199 / 255, 
 let listCellReuseIdentifier = "MovieCell"
 let searchCellReuseIdentifier = "SearchCell"
 let bookingCellReuseIdentifier = "BookingCell"
+let synopsisReuseIdentifier = "SynopsisCell"
+let similarReuseIdentifier = "SimilarCell"
+let castReuseIdentifier = "CastCell"
+let reviewReuseIdentifier = "ReviewCell"
 
 
 let searchCacheKey = "SearchCache"
