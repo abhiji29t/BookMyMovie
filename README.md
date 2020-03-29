@@ -11,7 +11,7 @@ Features as per assignment:
 
 3) Implemented caching of movies searched. If a cached movie is clicked again, it is bumped up to the top position in cache.
 
-4) Implemented a search algortihm which searches all the words in search string through all words in movie names and looks for search words as prefiixes in movie name words.
+4) Implemented a search algortihm which searches all the words in search string through all words in movie names and looks for search words as prefix in movie name words.
 
 5) Unit tests are written to test the search algorithm for the cases given in assignment.
 
