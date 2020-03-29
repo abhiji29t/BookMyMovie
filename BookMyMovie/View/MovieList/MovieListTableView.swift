@@ -28,16 +28,17 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     private func getMovieListCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.listCellReuseIdentifier, for: indexPath) as! MovieTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: listCellReuseIdentifier, for: indexPath) as! MovieTableViewCell
 
         let movieData = moviesDataCollection[indexPath.row]
-        cell.setMovieCellValues(movieData.name, movieData.imageURL, movieData.date)
+        cell.setMovieCellValues(withMovieData: movieData)
+        cell.bookingDelegate = self
 
         return cell
     }
 
     private func getSearchCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: self.searchCellReuseIdentifier, for: indexPath) as! MovieSearchTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: searchCellReuseIdentifier, for: indexPath) as! MovieSearchTableViewCell
 
         let searchData = self.searchMovieCollection[indexPath.row]
         cell.setMovieCellValues(searchData.name)
@@ -46,29 +47,34 @@ extension MovieListViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if self.isRecentlySearchedItemShowing {
+        if self.isRecentlySearchedItemShowing && !self.searchCacheItems.isEmpty {
             return "Recently Searced"
         }
         return ""
     }
 
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if self.isRecentlySearchedItemShowing && !self.searchCacheItems.isEmpty {
+            return 50
+        }
+        return 0
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let movieDetailController = storyboard?.instantiateViewController(identifier: "MovieDetailController") as? MovieDetailController {
-            var movieId: Int, name: String
+            var movieData: MovieData
             switch self.listMode {
             case .nowShowing:
-                movieId = moviesDataCollection[indexPath.row].id
-                name = moviesDataCollection[indexPath.row].name
+                movieData = moviesDataCollection[indexPath.row]
             case .search:
-                movieId = searchMovieCollection[indexPath.row].id
-                name = searchMovieCollection[indexPath.row].name
+                movieData = searchMovieCollection[indexPath.row]
             }
-            movieDetailController.movieID = String(movieId)
-            movieDetailController.title = name
+            movieDetailController.movieData = movieData
+            movieDetailController.bookingDelegate = self
 
             self.navigationController?.pushViewController(movieDetailController, animated: true)
             if listMode == .search {
-                self.addToCacheMoiveID(movieId)
+                self.addToCacheMoiveID(movieData.id)
                 self.cleanupSearchView()
             }
             tableView.deselectRow(at: indexPath, animated: true)

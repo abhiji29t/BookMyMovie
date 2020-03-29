@@ -9,43 +9,55 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="82" id="KGk-i7-Jjw" customClass="ReviewTableViewCell" customModule="FightClub" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="340" height="82"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="143" id="KGk-i7-Jjw" customClass="ReviewTableViewCell" customModule="BookMyMovie" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="340" height="82"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xy-Ek-Ovk">
-                        <rect key="frame" x="5" y="5" width="330" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2UB-YA-dhu">
-                        <rect key="frame" x="5" y="30.5" width="330" height="46.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYn-r0-HY3">
+                        <rect key="frame" x="5" y="5" width="365" height="133"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xy-Ek-Ovk">
+                                <rect key="frame" x="5" y="5" width="355" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2UB-YA-dhu">
+                                <rect key="frame" x="5" y="30.5" width="355" height="97.5"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2UB-YA-dhu" firstAttribute="leading" secondItem="kYn-r0-HY3" secondAttribute="leading" constant="5" id="82V-FN-zbU"/>
+                            <constraint firstAttribute="trailing" secondItem="2UB-YA-dhu" secondAttribute="trailing" constant="5" id="9qB-oN-Lhw"/>
+                            <constraint firstItem="0Xy-Ek-Ovk" firstAttribute="leading" secondItem="kYn-r0-HY3" secondAttribute="leading" constant="5" id="MIr-U2-EOO"/>
+                            <constraint firstItem="2UB-YA-dhu" firstAttribute="top" secondItem="0Xy-Ek-Ovk" secondAttribute="bottom" constant="5" id="O1Z-9w-06H"/>
+                            <constraint firstItem="0Xy-Ek-Ovk" firstAttribute="top" secondItem="kYn-r0-HY3" secondAttribute="top" constant="5" id="PBC-SI-GPj"/>
+                            <constraint firstAttribute="bottom" secondItem="2UB-YA-dhu" secondAttribute="bottom" constant="5" id="RUD-lC-v0m"/>
+                            <constraint firstAttribute="trailing" secondItem="0Xy-Ek-Ovk" secondAttribute="trailing" constant="5" id="agy-tb-s1c"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="2UB-YA-dhu" secondAttribute="bottom" constant="5" id="9tZ-Fm-1td"/>
-                    <constraint firstItem="2UB-YA-dhu" firstAttribute="top" secondItem="0Xy-Ek-Ovk" secondAttribute="bottom" constant="5" id="F7C-lV-jsO"/>
-                    <constraint firstAttribute="trailing" secondItem="0Xy-Ek-Ovk" secondAttribute="trailing" constant="5" id="LaL-1b-G0h"/>
-                    <constraint firstItem="2UB-YA-dhu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="QY8-Re-fap"/>
-                    <constraint firstAttribute="trailing" secondItem="2UB-YA-dhu" secondAttribute="trailing" constant="5" id="U9X-Mf-nWu"/>
-                    <constraint firstItem="2UB-YA-dhu" firstAttribute="top" secondItem="0Xy-Ek-Ovk" secondAttribute="bottom" constant="5" id="gS8-iB-gLj"/>
-                    <constraint firstItem="0Xy-Ek-Ovk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="igY-Yt-UAz"/>
-                    <constraint firstItem="0Xy-Ek-Ovk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="rx2-Ld-Vov"/>
+                    <constraint firstAttribute="bottom" secondItem="kYn-r0-HY3" secondAttribute="bottom" constant="5" id="CEQ-5X-qhr"/>
+                    <constraint firstItem="kYn-r0-HY3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="hbp-JD-Fp9"/>
+                    <constraint firstItem="kYn-r0-HY3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="jDf-bE-4hM"/>
+                    <constraint firstAttribute="trailing" secondItem="kYn-r0-HY3" secondAttribute="trailing" constant="5" id="kO7-4y-zAn"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="authorLabel" destination="0Xy-Ek-Ovk" id="oJG-1z-STP"/>
+                <outlet property="containerView" destination="kYn-r0-HY3" id="znh-EI-WTn"/>
                 <outlet property="contentLabel" destination="2UB-YA-dhu" id="4NS-bo-dUK"/>
             </connections>
-            <point key="canvasLocation" x="150.72463768115944" y="132.58928571428572"/>
+            <point key="canvasLocation" x="176.08695652173915" y="153.01339285714286"/>
         </tableViewCell>
     </objects>
 </document>

@@ -85,15 +85,18 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let button = UIButton(type: .detailDisclosure)
+        let headerButton = UIButton(type: .system)
         let title = self.getHeaderName(forSection: section)
-        button.setTitle(title, for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = UIColor.yellow
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.tag = section
-        button.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
-        return button
+        headerButton.setTitle(title, for: .normal)
+        headerButton.setTitleColor(.black, for: .normal)
+        headerButton.backgroundColor = lightGrayColor
+        headerButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        headerButton.tag = section
+        if title != "No review in for this movie" {
+            headerButton.setImage(.add, for: .normal)
+            headerButton.addTarget(self, action: #selector(handleExpandClose), for: .touchUpInside)
+        }
+        return headerButton
     }
 
     private func getHeaderName(forSection section: Int) -> String {
@@ -122,8 +125,10 @@ extension MovieDetailController: UITableViewDelegate, UITableViewDataSource {
         detailData[button.tag].isExpanded = !detailData[button.tag].isExpanded
         if !detailData[button.tag].isExpanded {
             self.detailTableView.deleteRows(at: indexPaths, with: .top)
+            button.setImage(.add, for: .normal)
         } else {
             self.detailTableView.insertRows(at: indexPaths, with: .top)
+            button.setImage(.remove, for: .normal)
         }
     }
 }

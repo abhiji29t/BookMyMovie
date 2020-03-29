@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C58F909242FE1410061CE38 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58F908242FE1410061CE38 /* UIConstants.swift */; };
+		6C58F90B242FEFBF0061CE38 /* BookingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58F90A242FEFBF0061CE38 /* BookingsViewController.swift */; };
+		6C58F90F242FF3440061CE38 /* BookingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58F90D242FF3440061CE38 /* BookingTableViewCell.swift */; };
+		6C58F910242FF3440061CE38 /* BookingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C58F90E242FF3440061CE38 /* BookingTableViewCell.xib */; };
+		6C58F912242FF4E50061CE38 /* BookingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C58F911242FF4E50061CE38 /* BookingsTableView.swift */; };
 		6C943E77242F6405007B3A88 /* BookMyMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C943E76242F6405007B3A88 /* BookMyMovieTests.swift */; };
+		6C943E80242FD6D2007B3A88 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C943E7F242FD6D2007B3A88 /* Utility.swift */; };
 		6C9E7E11242E952400C8077B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6C9E7E10242E952400C8077B /* README.md */; };
 		6CCD2717242E610C00BDDDCB /* ImageView+Downloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCD26F8242E610C00BDDDCB /* ImageView+Downloader.swift */; };
 		6CCD2718242E610C00BDDDCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CCD26F9242E610C00BDDDCB /* LaunchScreen.storyboard */; };
@@ -48,11 +54,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6C58F908242FE1410061CE38 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		6C58F90A242FEFBF0061CE38 /* BookingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsViewController.swift; sourceTree = "<group>"; };
+		6C58F90D242FF3440061CE38 /* BookingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingTableViewCell.swift; sourceTree = "<group>"; };
+		6C58F90E242FF3440061CE38 /* BookingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookingTableViewCell.xib; sourceTree = "<group>"; };
+		6C58F911242FF4E50061CE38 /* BookingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingsTableView.swift; sourceTree = "<group>"; };
 		6C8028B7242B9C9A003F0D5B /* BookMyMovie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookMyMovie.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C943E6E242F628F007B3A88 /* SearchUnitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchUnitTests.swift; path = BookMyMovieTests/SearchUnitTests.swift; sourceTree = "<group>"; };
 		6C943E74242F6405007B3A88 /* BookMyMovieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookMyMovieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C943E76242F6405007B3A88 /* BookMyMovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMyMovieTests.swift; sourceTree = "<group>"; };
 		6C943E78242F6405007B3A88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C943E7F242FD6D2007B3A88 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		6C9E7E10242E952400C8077B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		6CCD26F8242E610C00BDDDCB /* ImageView+Downloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageView+Downloader.swift"; sourceTree = "<group>"; };
 		6CCD26FA242E610C00BDDDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,10 +112,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C58F90C242FF2E40061CE38 /* Bookings */ = {
+			isa = PBXGroup;
+			children = (
+				6C58F911242FF4E50061CE38 /* BookingsTableView.swift */,
+				6C58F90E242FF3440061CE38 /* BookingTableViewCell.xib */,
+				6C58F90D242FF3440061CE38 /* BookingTableViewCell.swift */,
+			);
+			path = Bookings;
+			sourceTree = "<group>";
+		};
 		6C8028AE242B9C9A003F0D5B = {
 			isa = PBXGroup;
 			children = (
-				6C943E6E242F628F007B3A88 /* SearchUnitTests.swift */,
 				6CCD26F7242E610C00BDDDCB /* BookMyMovie */,
 				6C943E75242F6405007B3A88 /* BookMyMovieTests */,
 				6C8028B8242B9C9A003F0D5B /* Products */,
@@ -129,11 +149,20 @@
 			path = BookMyMovieTests;
 			sourceTree = "<group>";
 		};
+		6C943E7E242FD629007B3A88 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				6C943E7F242FD6D2007B3A88 /* Utility.swift */,
+				6C58F908242FE1410061CE38 /* UIConstants.swift */,
+				6CCD26F8242E610C00BDDDCB /* ImageView+Downloader.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		6CCD26F7242E610C00BDDDCB /* BookMyMovie */ = {
 			isa = PBXGroup;
 			children = (
-				6CCD26F8242E610C00BDDDCB /* ImageView+Downloader.swift */,
-				6CCD26F9242E610C00BDDDCB /* LaunchScreen.storyboard */,
+				6C943E7E242FD629007B3A88 /* Utility */,
 				6CCD26FB242E610C00BDDDCB /* Controller */,
 				6CCD26FE242E610C00BDDDCB /* Model */,
 				6CCD2702242E610C00BDDDCB /* View */,
@@ -151,6 +180,7 @@
 			children = (
 				6CCD26FC242E610C00BDDDCB /* MovieListViewController.swift */,
 				6CCD26FD242E610C00BDDDCB /* MovieDetailController.swift */,
+				6C58F90A242FEFBF0061CE38 /* BookingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,9 +198,11 @@
 		6CCD2702242E610C00BDDDCB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6CCD26F9242E610C00BDDDCB /* LaunchScreen.storyboard */,
 				6CCD2709242E610C00BDDDCB /* Main.storyboard */,
-				6CCD273E242E6BF100BDDDCB /* MovieDetail */,
 				6CCD273D242E6BAE00BDDDCB /* MovieList */,
+				6CCD273E242E6BF100BDDDCB /* MovieDetail */,
+				6C58F90C242FF2E40061CE38 /* Bookings */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,6 +319,7 @@
 			files = (
 				6CCD2718242E610C00BDDDCB /* LaunchScreen.storyboard in Resources */,
 				6CCD2724242E610C00BDDDCB /* Main.storyboard in Resources */,
+				6C58F910242FF3440061CE38 /* BookingTableViewCell.xib in Resources */,
 				6C9E7E11242E952400C8077B /* README.md in Resources */,
 				6CCD2721242E610C00BDDDCB /* SynopsisTableViewCell.xib in Resources */,
 				6CCD2732242E616600BDDDCB /* Assets.xcassets in Resources */,
@@ -314,16 +347,21 @@
 			files = (
 				6CCD2725242E610C00BDDDCB /* MovieSearchTableViewCell.swift in Sources */,
 				6CCD272B242E610C00BDDDCB /* SimilarTableViewCell.swift in Sources */,
+				6C58F90F242FF3440061CE38 /* BookingTableViewCell.swift in Sources */,
+				6C943E80242FD6D2007B3A88 /* Utility.swift in Sources */,
 				6CCD271C242E610C00BDDDCB /* NetworkService.swift in Sources */,
 				6CCD2722242E610C00BDDDCB /* SynopsisTableViewCell.swift in Sources */,
 				6CCD2728242E610C00BDDDCB /* MovieDetailTableView.swift in Sources */,
+				6C58F90B242FEFBF0061CE38 /* BookingsViewController.swift in Sources */,
 				6CCD272D242E610C00BDDDCB /* MovieTableViewCell.swift in Sources */,
+				6C58F912242FF4E50061CE38 /* BookingsTableView.swift in Sources */,
 				6CCD271A242E610C00BDDDCB /* MovieDetailController.swift in Sources */,
 				6CCD2730242E610C00BDDDCB /* SceneDelegate.swift in Sources */,
 				6CCD271D242E610C00BDDDCB /* RequestHandler.swift in Sources */,
 				6CCD272E242E610C00BDDDCB /* AppDelegate.swift in Sources */,
 				6CCD271B242E610C00BDDDCB /* DataModel.swift in Sources */,
 				6CCD2727242E610C00BDDDCB /* CastTableViewCell.swift in Sources */,
+				6C58F909242FE1410061CE38 /* UIConstants.swift in Sources */,
 				6CCD2720242E610C00BDDDCB /* MovieListSearchBar.swift in Sources */,
 				6CCD272C242E610C00BDDDCB /* MovieListTableView.swift in Sources */,
 				6CCD2717242E610C00BDDDCB /* ImageView+Downloader.swift in Sources */,

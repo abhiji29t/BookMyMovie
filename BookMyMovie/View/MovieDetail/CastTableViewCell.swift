@@ -20,5 +20,6 @@ class CastTableViewCell: UITableViewCell {
         self.characterName.text = characterName
         self.realName.text = realName
         self.posterView.getImageFromURL(posterImageURL, withCache: imageCache)
+        self.backgroundColor = ultraLightGrayColor
     }
 }

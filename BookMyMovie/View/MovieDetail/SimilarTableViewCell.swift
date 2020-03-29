@@ -17,6 +17,8 @@ class SimilarTableViewCell: UITableViewCell {
 
     func setSimilarCellValues(_ movieName: String, _ posterImageURL: String) {
         self.movieName.text = movieName
+        self.posterView.layer.cornerRadius = 10
         self.posterView.getImageFromURL(posterImageURL, withCache: imageCache)
+        self.backgroundColor = ultraLightGrayColor
     }
 }

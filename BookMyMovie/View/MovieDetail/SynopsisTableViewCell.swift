@@ -14,6 +14,7 @@ class SynopsisTableViewCell: UITableViewCell {
 
     func setupSynopsisCell(withSynopsis content: String) {
         synopsisLabel.text = content
+        self.backgroundColor = ultraLightGrayColor
     }
 
 }

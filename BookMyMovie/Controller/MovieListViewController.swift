@@ -8,30 +8,30 @@
 
 import UIKit
 
+protocol BookingsDelegate: class {
+    func bookMovieWith(_ movieData: MovieData)
+}
+
+struct MovieData {
+    var id: Int
+    var imageURL: String
+    var name: String
+    var date: String
+}
 class MovieListViewController: UIViewController {
 
     @IBOutlet weak var movieTableView: UITableView!
     @IBOutlet weak var backToListButton: UIBarButtonItem!
     @IBOutlet weak var movieSearchBar: UISearchBar!
 
-    struct MovieData {
-        var id: Int
-        var imageURL: String
-        var name: String
-        var date: String
-    }
-
     enum ListMode {
         case nowShowing
         case search
     }
 
-    let listCellReuseIdentifier = "MovieCell"
-    let searchCellReuseIdentifier = "SearchCell"
-    let searchCacheKey = "SearchCache"
-
     var moviesDataCollection = [MovieData]()
     var searchMovieCollection = [MovieData]()
+    var bookingsCollection = [MovieData]()
     var listMode: ListMode = .nowShowing
 
     let defaults = UserDefaults.standard
@@ -42,21 +42,26 @@ class MovieListViewController: UIViewController {
         super.viewDidLoad()
 
         self.hideShowBackToListButton(false)
-        self.searchCacheItems = defaults.array(forKey: self.searchCacheKey) as? [Int] ?? [Int]()
+        self.searchCacheItems = defaults.array(forKey: searchCacheKey) as? [Int] ?? [Int]()
         self.registerNibs()
 
         self.movieTableView.estimatedRowHeight = 150
         self.movieTableView.rowHeight = UITableView.automaticDimension
 
         self.fetchTableViewData()
+
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = .black
+        self.movieSearchBar.barTintColor = ultraLightGrayColor
+        self.movieTableView.backgroundColor = ultraLightGrayColor
     }
 
     private func registerNibs() {
         let movieNib = UINib(nibName: "MovieTableViewCell", bundle: nil)
-        self.movieTableView.register(movieNib, forCellReuseIdentifier: self.listCellReuseIdentifier)
+        self.movieTableView.register(movieNib, forCellReuseIdentifier: listCellReuseIdentifier)
 
         let searchNib = UINib(nibName: "MovieSearchTableViewCell", bundle: nil)
-        self.movieTableView.register(searchNib, forCellReuseIdentifier: self.searchCellReuseIdentifier)
+        self.movieTableView.register(searchNib, forCellReuseIdentifier: searchCellReuseIdentifier)
     }
 
     private func fetchTableViewData() {
@@ -90,8 +95,15 @@ class MovieListViewController: UIViewController {
         self.cleanupSearchView()
     }
 
+    @IBAction func bookingsButtonPressed(_ sender: Any) {
+        if let bookingsController = storyboard?.instantiateViewController(identifier: "BookingsViewController") as? BookingsViewController {
+            bookingsController.bookingsCollection = self.bookingsCollection
+            self.navigationController?.pushViewController(bookingsController, animated: true)
+        }
+    }
+
     func hideShowBackToListButton(_ show: Bool) {
-        self.backToListButton.tintColor = show ? .link : .clear
+        self.backToListButton.tintColor = show ? .black : .clear
         self.backToListButton.isEnabled = show
     }
 
@@ -107,7 +119,7 @@ class MovieListViewController: UIViewController {
             }
             searchCacheItems.insert(movieId, at: 0)
         }
-        defaults.set(searchCacheItems, forKey: self.searchCacheKey)
+        defaults.set(searchCacheItems, forKey: searchCacheKey)
     }
 
     func getCachedMovieNames() -> [MovieData] {
@@ -142,4 +154,40 @@ class MovieListViewController: UIViewController {
         }
         return movideResultArray
     }
+}
+
+extension MovieListViewController: BookingsDelegate {
+    func bookMovieWith(_ movieData: MovieData) {
+        if checkIfMovieAlreadyBooked(movieData) {
+            showAlert(for: true, with: movieData)
+        } else {
+            showAlert(for: false, with: movieData)
+            bookingsCollection.append(movieData)
+        }
+    }
+
+    func showAlert(for isMovieAlreadybooked: Bool, with movieData: MovieData) {
+        var title: String, message: String
+
+        if isMovieAlreadybooked {
+            title = "Don't be GREEDY \u{1F47F}"
+            message = "You already have a free ticket for \n\"" + movieData.name.uppercased() + "\""
+        } else {
+            title = "CONGRATULATIONS \u{1F91F}"
+            message = "You have won a free ticket for \n\"" + movieData.name.uppercased() + "\""
+        }
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func checkIfMovieAlreadyBooked(_ movieData: MovieData) -> Bool {
+        for item in bookingsCollection {
+            if item.id == movieData.id {
+                return true
+            }
+        }
+        return false
+    }
+
 }

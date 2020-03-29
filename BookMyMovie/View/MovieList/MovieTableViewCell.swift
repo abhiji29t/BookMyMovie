@@ -14,17 +14,35 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var movieName: UILabel!
     @IBOutlet weak var releaseDate: UILabel!
     @IBOutlet weak var bookButton: UIButton!
+    @IBOutlet weak var containerView: UIView!
 
+    var movieData: MovieData?
+    weak var bookingDelegate: BookingsDelegate?
+    
     let imageCache = NSCache<NSString, UIImage>()
 
-    func setMovieCellValues(_ movieName: String, _ posterImageURL: String, _ releaseDate: String) {
-        self.movieName.text = movieName
-        self.releaseDate.text = releaseDate
-        self.posterView.getImageFromURL(posterImageURL, withCache: imageCache)
+    func setMovieCellValues(withMovieData movieData: MovieData) {
+        self.movieData = movieData
+
+        self.containerView.layer.cornerRadius = 10
+        self.containerView.layer.masksToBounds = true
+        self.posterView.layer.cornerRadius = 10
+        self.bookButton.layer.cornerRadius = 10
+
+        self.containerView.backgroundColor = lightGrayColor
+        self.backgroundColor = ultraLightGrayColor
+
+        self.movieName.text = movieData.name
+        if let date = Utility.getFormattedDate(forDateString: movieData.date) {
+            self.releaseDate.text = date
+        }
+        self.posterView.getImageFromURL(movieData.imageURL, withCache: imageCache)
     }
 
     @IBAction func bookButtonPressed(_ sender: Any) {
-        //Booking Code
+        if let movieData = self.movieData {
+            bookingDelegate?.bookMovieWith(movieData)
+        }
     }
 
 }

@@ -36,21 +36,26 @@ class MovieDetailController: UIViewController {
     let castReuseIdentifier = "CastCell"
     let reviewReuseIdentifier = "ReviewCell"
 
-
-    var detailData = [ExpandableDetail]()
-
     @IBOutlet weak var detailTableView: UITableView!
+    @IBOutlet weak var movieDetailView: UIView!
+    @IBOutlet weak var posterView: UIImageView!
+    @IBOutlet weak var releaseDate: UILabel!
+    @IBOutlet weak var bookButton: UIButton!
 
-    var movieID: String?
+    weak var bookingDelegate: BookingsDelegate?
+
+    var movieData = MovieData(id: -1, imageURL: "", name: "", date: "")
+    var detailData = [ExpandableDetail]()
+    let imageCache = NSCache<NSString, UIImage>()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let movieId = self.movieID else {
-            return
-        }
+
+        self.renderMovieDetails()
         self.initialiseDetailDataArray()
         self.initialiseNibs()
 
+        let movieId = String(movieData.id)
         self.getSynopsis(forMovieID: movieId)
         self.getSimilarMovies(forMovieID: movieId)
         self.getCast(forMovieID: movieId)
@@ -79,6 +84,23 @@ class MovieDetailController: UIViewController {
         for _ in 0...3 {
             detailData.append(ExpandableDetail(isExpanded: false, detailItems: []))
         }
+    }
+
+    func renderMovieDetails() {
+        self.title = self.movieData.name
+        self.posterView.layer.cornerRadius = 10
+        self.bookButton.layer.cornerRadius = 10
+
+        if let date = Utility.getFormattedDate(forDateString: self.movieData.date) {
+            self.releaseDate.text = date
+        }
+        self.posterView.getImageFromURL(self.movieData.imageURL, withCache: self.imageCache)
+        self.movieDetailView.backgroundColor = ultraLightGrayColor
+        self.detailTableView.backgroundColor = ultraLightGrayColor
+    }
+
+    @IBAction func bookButtonPressed(_ sender: Any) {
+        bookingDelegate?.bookMovieWith(self.movieData)
     }
 
     private func getSynopsis(forMovieID movieId: String) {
