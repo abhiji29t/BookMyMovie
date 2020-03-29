@@ -17,8 +17,8 @@ class BookingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerNib()
+        self.bookingsTableView.allowsSelection = false
         self.bookingsTableView.reloadData()
-
     }
 
     // Registers the cell required

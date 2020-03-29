@@ -45,6 +45,8 @@ class MovieDetailController: UIViewController {
         detailTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")
         self.detailTableView.estimatedRowHeight = 100
         self.detailTableView.rowHeight = UITableView.automaticDimension
+        self.detailTableView.allowsSelection = false
+
     }
 
     // Registers all the cells required
